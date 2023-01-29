@@ -1,0 +1,37 @@
+<h1> Employees </h1>
+
+<div class="alert alert-success" *ngIf='message'>{{message}}</div>
+
+<div class="container">
+  <table class="table">
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Login</th>
+      <th>Salary</th>
+      <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let employee of employees">
+      <td>{{employee.id}}</td>
+      <td>{{employee.targetDate | date | uppercase}}</td>
+      <td>{{employee.done}}</td>
+      <td>{{employee.description}}</td>
+      <td>
+        <button (click)="updateEmployee(employee.id)" class="btn btn-success mx-2">Update</button>
+        <button (click)="deleteEmployee(employee.id)" class="btn btn-warning">Delete</button>
+      </td>
+    </tr>
+    </tbody>
+
+  </table>
+
+  <div class="row">
+    <div class="col">
+      <button (click)="addEmployee()" class="btn btn-success">Add</button>
+    </div>
+  </div>
+
+</div>

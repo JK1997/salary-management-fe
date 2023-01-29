@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { TodoDataService } from './todo-data.service';
+import { EmployeeDataService } from './employee-data.service';
 
-describe('TodoDataService', () => {
+describe('EmployeeDataService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: TodoDataService = TestBed.get(TodoDataService);
+    const service: EmployeeDataService = TestBed.get(EmployeeDataService);
     expect(service).toBeTruthy();
   });
 });

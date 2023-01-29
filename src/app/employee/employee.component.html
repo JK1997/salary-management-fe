@@ -1,0 +1,32 @@
+<H1>Employee</H1>
+
+<div class="container">
+  <div class="alert alert-warning" *ngIf="employeeForm.dirty && employeeForm.invalid">Enter valid values</div>
+  <div class="alert alert-warning" *ngIf="employeeForm.dirty && targetDate.invalid">Enter valid Target Date</div>
+  <div class="alert alert-warning" *ngIf="employeeForm.dirty && description.invalid">Enter atleast 5 characters in Description</div>
+
+  <form (ngSubmit)="!employeeForm.invalid && saveEmployee()" #employeeForm="ngForm">
+    <div class="row">
+      <div class="col">
+        <fieldset class="form-group">
+          <label>Description</label>
+          <input type="text" #description="ngModel"
+                 [(ngModel)]="employee.description" class="form-control"
+                 name="description" required="required" minlength="5">
+        </fieldset>
+      </div>
+      <div class="col">
+        <fieldset class="form-group">
+          <label>Target Date</label>
+          <input type="date" #targetDate="ngModel"
+                 [ngModel]="employee.targetDate | date:'yyyy-MM-dd' "
+                 (ngModelChange)="employee.targetDate = $event"
+                 class="form-control" name="targetDate" required="required" >
+        </fieldset>
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-success mt-3">Save</button>
+
+  </form>
+</div>

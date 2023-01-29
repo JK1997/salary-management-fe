@@ -9,10 +9,10 @@ import { AppComponent } from './app.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { LoginComponent } from './login/login.component';
 import { ErrorComponent } from './error/error.component';
-import { ListTodosComponent } from './list-todos/list-todos.component';
+import { ListEmployeesComponent } from './list-employees/list-employees.component';
 import { MenuComponent } from './menu/menu.component';
 import { LogoutComponent } from './logout/logout.component';
-import { TodoComponent } from './todo/todo.component';
+import { EmployeeComponent } from './employee/employee.component';
 
 @NgModule({
   declarations: [
@@ -20,10 +20,10 @@ import { TodoComponent } from './todo/todo.component';
     WelcomeComponent,
     LoginComponent,
     ErrorComponent,
-    ListTodosComponent,
+    ListEmployeesComponent,
     MenuComponent,
     LogoutComponent,
-    TodoComponent
+    EmployeeComponent
   ],
   imports: [
     BrowserModule,
