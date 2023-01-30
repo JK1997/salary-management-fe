@@ -5,9 +5,9 @@ import { Router } from '@angular/router';
 export class Employee {
   constructor(
     public id: number | undefined,
-    public description: string,
-    public done: boolean,
-    public targetDate: Date
+    public name: string,
+    public login: string,
+    public salary: number
   ){
 
   }

@@ -16,9 +16,9 @@
     <tbody>
     <tr *ngFor="let employee of employees">
       <td>{{employee.id}}</td>
-      <td>{{employee.targetDate | date | uppercase}}</td>
-      <td>{{employee.done}}</td>
-      <td>{{employee.description}}</td>
+      <td>{{employee.name}}</td>
+      <td>{{employee.login}}</td>
+      <td>{{employee.salary}}</td>
       <td>
         <button (click)="updateEmployee(employee.id)" class="btn btn-success mx-2">Update</button>
         <button (click)="deleteEmployee(employee.id)" class="btn btn-warning">Delete</button>

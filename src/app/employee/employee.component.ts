@@ -10,7 +10,7 @@ import { Employee } from '../list-employees/list-employees.component';
 })
 export class EmployeeComponent implements OnInit {
 
-  id!: number
+  id!: string
   employee!: Employee
 
   constructor(
@@ -23,9 +23,9 @@ export class EmployeeComponent implements OnInit {
 
     this.id = this.route.snapshot.params['id'];
 
-    this.employee = new Employee(this.id,'',false,new Date());
+    // this.employee = new Employee(this.id,,false,new Date());
 
-    if(this.id!=-1) {
+    if(this.id!='-1') {
       this.employeeService.retrieveEmployee('in28minutes', this.id)
           .subscribe (
             data => this.employee = data
@@ -34,8 +34,8 @@ export class EmployeeComponent implements OnInit {
   }
 
   saveEmployee() {
-    if(this.id == -1) { //=== ==
-      this.employeeService.createEmployee('in28minutes', this.employee)
+    if(this.id == '-1') { //=== ==
+      this.employeeService.createEmployee('in28minutes', this.id, this.employee)
           .subscribe (
             data => {
               console.log(data)

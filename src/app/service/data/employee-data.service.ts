@@ -12,28 +12,28 @@ export class EmployeeDataService {
     private http:HttpClient
   ) { }
 
-  retrieveAllEmployees(username: string) {
-    return this.http.get<Employee[]>(`${EMPLOYEE_JPA_API_URL}/users/${username}/employees`);
+  retrieveAllEmployees(login: string) {
+    return this.http.get<Employee[]>(`${EMPLOYEE_JPA_API_URL}/users/${login}/employees`);
     //console.log("Execute Hello World Bean Service")
   }
 
-  deleteEmployee(username: string, id: any){
-    return this.http.delete(`${EMPLOYEE_JPA_API_URL}/users/${username}/employees/${id}`);
+  deleteEmployee(login: string, id: any){
+    return this.http.delete(`${EMPLOYEE_JPA_API_URL}/users/${login}/employees/${id}`);
   }
 
-  retrieveEmployee(username: string, id: number | undefined){
-    return this.http.get<Employee>(`${EMPLOYEE_JPA_API_URL}/users/${username}/employees/${id}`);
+  retrieveEmployee(login: string, id: string){
+    return this.http.get<Employee>(`${EMPLOYEE_JPA_API_URL}/users/${login}/employees/${id}`);
   }
 
-  updateEmployee(username: string, id: number | undefined, employee: Employee | undefined){
+  updateEmployee(login: string, id: string, employee: Employee | undefined){
     return this.http.put(
-          `${EMPLOYEE_JPA_API_URL}/users/${username}/employees/${id}`
+          `${EMPLOYEE_JPA_API_URL}/users/${login}/employees/${id}`
                 , employee);
   }
 
-  createEmployee(username: string, employee: Employee | undefined){
+  createEmployee(login: string, id: string, employee: Employee | undefined){
     return this.http.post(
-              `${EMPLOYEE_JPA_API_URL}/users/${username}/employees`
+              `${EMPLOYEE_JPA_API_URL}/users/${login}/employees/${id}`
                 , employee);
   }
 
