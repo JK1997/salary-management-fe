@@ -2,8 +2,63 @@
 
 <div class="alert alert-success" *ngIf='message'>{{message}}</div>
 
-<div class="container">
-  <table class="table">
+<div class="container mt-4">
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> ID </th>
+      <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="login">
+      <th mat-header-cell *matHeaderCellDef> Login </th>
+      <td mat-cell *matCellDef="let element"> {{element.login}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="salary">
+      <th mat-header-cell *matHeaderCellDef> Salary </th>
+      <td mat-cell *matCellDef="let element"> {{element.salary}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="options">
+      <th mat-header-cell *matHeaderCellDef> Options </th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-raised-button color="primary" (click)="updateEmployee(element.id)" class="m-2">
+          <mat-icon>edit</mat-icon>
+          Update
+        </button>
+        <button mat-raised-button color="warn" (click)="deleteEmployee(element.id)" class="m-2">
+          <mat-icon>delete</mat-icon>
+          Delete
+        </button>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <div class="row mt-4">
+    <div class="col">
+      <button mat-raised-button (click)="addEmployee()" class="m-2 bg-success text-white">
+        <mat-icon>add</mat-icon>
+        ADD
+      </button>
+    </div>
+  </div>
+
+</div>
+
+<!-- BOOTSTRAP TABLE-->
+
+<!--<table class="table">
     <thead>
     <tr>
       <th>ID</th>
@@ -26,12 +81,4 @@
     </tr>
     </tbody>
 
-  </table>
-
-  <div class="row">
-    <div class="col">
-      <button (click)="addEmployee()" class="btn btn-success">Add</button>
-    </div>
-  </div>
-
-</div>
+  </table>-->

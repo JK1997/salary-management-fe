@@ -24,6 +24,8 @@ export class ListEmployeesComponent implements OnInit {
 
   message: string | undefined
 
+  dataSource: Employee[] = [];
+  displayedColumns: string[] = ['id', 'name', 'login', 'salary', 'options'];
 
 
   constructor(
@@ -38,8 +40,8 @@ export class ListEmployeesComponent implements OnInit {
   refreshEmployees(){
     this.employeeService.retrieveAllEmployees().subscribe(
       response => {
-        console.log(response);
-        this.employees = response;
+        this.dataSource = response;
+        console.log(this.dataSource);
       }
     )
   }
