@@ -26,7 +26,7 @@ export class EmployeeComponent implements OnInit {
     // this.employee = new Employee(this.id,,false,new Date());
 
     if(this.id!='-1') {
-      this.employeeService.retrieveEmployee('in28minutes', this.id)
+      this.employeeService.retrieveEmployee(this.id)
           .subscribe (
             data => this.employee = data
           )
@@ -35,7 +35,7 @@ export class EmployeeComponent implements OnInit {
 
   saveEmployee() {
     if(this.id == '-1') { //=== ==
-      this.employeeService.createEmployee('in28minutes', this.id, this.employee)
+      this.employeeService.createEmployee(this.id, this.employee)
           .subscribe (
             data => {
               console.log(data)
@@ -43,7 +43,7 @@ export class EmployeeComponent implements OnInit {
             }
           )
     } else {
-      this.employeeService.updateEmployee('in28minutes', this.id, this.employee)
+      this.employeeService.updateEmployee(this.id, this.employee)
           .subscribe (
             data => {
               console.log(data)

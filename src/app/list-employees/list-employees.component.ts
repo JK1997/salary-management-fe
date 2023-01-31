@@ -36,7 +36,7 @@ export class ListEmployeesComponent implements OnInit {
   }
 
   refreshEmployees(){
-    this.employeeService.retrieveAllEmployees('in28minutes').subscribe(
+    this.employeeService.retrieveAllEmployees().subscribe(
       response => {
         console.log(response);
         this.employees = response;
@@ -46,7 +46,7 @@ export class ListEmployeesComponent implements OnInit {
 
   deleteEmployee(id: any) {
     console.log(`delete employee ${id}` )
-    this.employeeService.deleteEmployee('in28minutes', id).subscribe (
+    this.employeeService.deleteEmployee(id).subscribe (
       response => {
         console.log(response);
         this.message = `Delete of Employee ${id} Successful!`;

@@ -2,7 +2,7 @@
 
 <div class="container">
   <div class="alert alert-warning" *ngIf="employeeForm.dirty && employeeForm.invalid">Enter valid values</div>
-  <div class="alert alert-warning" *ngIf="employeeForm.dirty && login.invalid">Enter atleast 5 characters in Login<</div>
+  <div class="alert alert-warning" *ngIf="employeeForm.dirty && login.invalid">Enter atleast 5 characters in Login</div>
   <div class="alert alert-warning" *ngIf="employeeForm.dirty && name.invalid">Enter atleast 5 characters in Name</div>
 
   <form (ngSubmit)="!employeeForm.invalid && saveEmployee()" #employeeForm="ngForm">

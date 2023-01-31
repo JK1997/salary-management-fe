@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  username = 'in28minutes'
+  username = 'JunKai'
   password = ''
   errorMessage = 'Invalid Credentials'
   invalidLogin = false
