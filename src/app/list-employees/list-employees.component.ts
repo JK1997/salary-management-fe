@@ -1,6 +1,7 @@
 import { EmployeeDataService } from '../service/data/employee-data.service';
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, TemplateRef} from '@angular/core';
 import { Router } from '@angular/router';
+import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 
 export class Employee {
   constructor(
@@ -20,6 +21,8 @@ export class Employee {
 })
 export class ListEmployeesComponent implements OnInit {
 
+  modalRef: BsModalRef | undefined;
+
   employees: Employee[] | undefined
 
   message: string | undefined
@@ -30,7 +33,8 @@ export class ListEmployeesComponent implements OnInit {
 
   constructor(
     private employeeService:EmployeeDataService,
-    private router : Router
+    private router : Router,
+    private modalService: BsModalService
   ) { }
 
   ngOnInit() {
@@ -53,6 +57,8 @@ export class ListEmployeesComponent implements OnInit {
         console.log(response);
         this.message = `Delete of Employee ${id} Successful!`;
         this.refreshEmployees();
+        // @ts-ignore
+        this.modalRef.hide();
       }
     )
   }
@@ -65,5 +71,15 @@ export class ListEmployeesComponent implements OnInit {
   addEmployee() {
     this.router.navigate(['employees',-1])
   }
+
+  openModal(template: TemplateRef<any>) {
+    this.modalRef = this.modalService.show(template, {class: 'modal-sm'});
+  }
+
+  decline(): void {
+    // @ts-ignore
+    this.modalRef.hide();
+  }
+
 }
 

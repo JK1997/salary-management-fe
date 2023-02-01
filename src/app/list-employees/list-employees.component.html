@@ -35,10 +35,24 @@
           <mat-icon>edit</mat-icon>
           Update
         </button>
-        <button mat-raised-button color="warn" (click)="deleteEmployee(element.id)" class="m-2">
+        <button mat-raised-button color="warn" (click)="openModal(delete)" class="m-2">
           <mat-icon>delete</mat-icon>
           Delete
         </button>
+        <ng-template #delete>
+          <div class="modal-body text-center">
+            <p>Do you want to delete?</p>
+            <button mat-raised-button color="warn" (click)="deleteEmployee(element.id)" class="m-2">
+              <mat-icon>delete</mat-icon>
+              Delete
+            </button>
+            <button type="button" class="btn btn-primary" (click)="decline()" >No</button>
+          </div>
+        </ng-template>
+        <!--<button mat-raised-button color="warn" (click)="deleteEmployee(element.id)" class="m-2">
+          <mat-icon>delete</mat-icon>
+          Delete
+        </button>-->
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

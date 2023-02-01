@@ -19,6 +19,7 @@ import {MatTableModule} from "@angular/material/table";
 import {MatPaginatorModule} from "@angular/material/paginator";
 import {MatIconModule} from "@angular/material/icon";
 import {MatButtonModule} from "@angular/material/button";
+import {ModalModule} from 'ngx-bootstrap/modal';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import {MatButtonModule} from "@angular/material/button";
     MatTableModule,
     MatPaginatorModule,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
+    ModalModule.forRoot()
   ],
   providers: [
      {provide: HTTP_INTERCEPTORS, useClass: HttpIntercepterBasicAuthService, multi: true }
