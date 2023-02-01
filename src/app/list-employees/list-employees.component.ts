@@ -5,7 +5,7 @@ import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 
 export class Employee {
   constructor(
-    public id: number | undefined,
+    public id: string,
     public name: string,
     public login: string,
     public salary: number

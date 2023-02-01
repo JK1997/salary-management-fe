@@ -14,7 +14,6 @@ export class EmployeeDataService {
 
   retrieveAllEmployees() {
     return this.http.get<Employee[]>(`${EMPLOYEE_JPA_API_URL}/users/employees`);
-    //console.log("Execute Hello World Bean Service")
   }
 
   deleteEmployee(id: any){

@@ -11,7 +11,12 @@ import { Employee } from '../list-employees/list-employees.component';
 export class EmployeeComponent implements OnInit {
 
   id!: string
-  employee!: Employee
+  employee: Employee = {
+    id: '',
+    name: '',
+    login: '',
+    salary: 0
+  }
 
   constructor(
     private employeeService: EmployeeDataService,
@@ -35,6 +40,7 @@ export class EmployeeComponent implements OnInit {
 
   saveEmployee() {
     if(this.id == '-1') { //=== ==
+      console.log(this.employee);
       this.employeeService.createEmployee(this.id, this.employee)
           .subscribe (
             data => {

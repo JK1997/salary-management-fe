@@ -2,10 +2,29 @@
 
 <div class="container">
   <div class="alert alert-warning" *ngIf="employeeForm.dirty && employeeForm.invalid">Enter valid values</div>
-  <div class="alert alert-warning" *ngIf="employeeForm.dirty && login.invalid">Enter atleast 5 characters in Login</div>
-  <div class="alert alert-warning" *ngIf="employeeForm.dirty && name.invalid">Enter atleast 5 characters in Name</div>
+  <div class="alert alert-warning" *ngIf="employeeForm.dirty && login.invalid">Enter at least 5 characters in Login</div>
+  <div class="alert alert-warning" *ngIf="employeeForm.dirty && name.invalid">Enter at least 5 characters in Name</div>
+  <div class="alert alert-warning" *ngIf="employeeForm.dirty && id.invalid">Enter at least 5 characters in ID</div>
 
   <form (ngSubmit)="!employeeForm.invalid && saveEmployee()" #employeeForm="ngForm">
+    <div class="row mb-4">
+      <div class="col">
+        <fieldset class="form-group">
+          <label>ID</label>
+          <input type="text" #id="ngModel"
+                 [(ngModel)]="employee.id" class="form-control"
+                 name="id" required="required" minlength="5">
+        </fieldset>
+      </div>
+      <div class="col">
+        <fieldset class="form-group">
+          <label>Login</label>
+          <input type="text" #login="ngModel"
+                 [(ngModel)]="employee.login" class="form-control"
+                 name="login" required="required" minlength="5">
+        </fieldset>
+      </div>
+    </div>
     <div class="row">
       <div class="col">
         <fieldset class="form-group">
@@ -17,10 +36,10 @@
       </div>
       <div class="col">
         <fieldset class="form-group">
-          <label>Login</label>
-          <input type="text" #login="ngModel"
-                 [(ngModel)]="employee.login" class="form-control"
-                 name="login" required="required" minlength="5">
+          <label>Salary</label>
+          <input type="number" #salary="ngModel"
+                 [(ngModel)]="employee.salary" class="form-control"
+                 name="salary" required="required">
         </fieldset>
       </div>
     </div>
