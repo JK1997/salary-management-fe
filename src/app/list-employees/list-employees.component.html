@@ -2,36 +2,57 @@
 
 <div class="alert alert-success" *ngIf='message'>{{message}}</div>
 
-<div class="container mt-4">
-  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+<div class="container mt-4 employee">
+
+  <div class="row">
+    <div class="col-3">
+      <mat-form-field class="example-full-width">
+        <mat-label>Salary From</mat-label>
+        <input matInput placeholder="1000" #minSalary>
+      </mat-form-field>
+    </div>
+    <div class="col-3">
+      <mat-form-field class="example-full-width">
+        <mat-label>Salary To</mat-label>
+        <input matInput placeholder="5000" #maxSalary>
+      </mat-form-field>
+    </div>
+    <div class="col-6"></div>
+  </div>
+
+  <!--<div class="spinner-container" *ngIf="dataSource.loading$ | async">
+    <mat-spinner></mat-spinner>
+  </div>-->
+
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort matSortActive="id" matSortDirection="asc" matSortDisableClear>
 
     <!--- Note that these columns can be defined in any order.
           The actual rendered columns are set as a property on the row definition" -->
 
     <ng-container matColumnDef="id">
-      <th mat-header-cell *matHeaderCellDef> ID</th>
-      <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> ID</th>
+      <td mat-cell *matCellDef="let employee"> {{employee.id}} </td>
     </ng-container>
 
     <ng-container matColumnDef="name">
       <th mat-header-cell *matHeaderCellDef> Name</th>
-      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+      <td mat-cell *matCellDef="let employee"> {{employee.name}} </td>
     </ng-container>
 
     <ng-container matColumnDef="login">
       <th mat-header-cell *matHeaderCellDef> Login</th>
-      <td mat-cell *matCellDef="let element"> {{element.login}} </td>
+      <td mat-cell *matCellDef="let employee"> {{employee.login}} </td>
     </ng-container>
 
     <ng-container matColumnDef="salary">
       <th mat-header-cell *matHeaderCellDef> Salary</th>
-      <td mat-cell *matCellDef="let element"> {{element.salary}} </td>
+      <td mat-cell *matCellDef="let employee"> {{employee.salary}} </td>
     </ng-container>
 
     <ng-container matColumnDef="options">
       <th mat-header-cell *matHeaderCellDef> Options</th>
-      <td mat-cell *matCellDef="let element">
-        <button mat-raised-button color="primary" (click)="updateEmployee(element.id)" class="m-2">
+      <td mat-cell *matCellDef="let employee">
+        <button mat-raised-button color="primary" (click)="updateEmployee(employee.id)" class="m-2">
           <mat-icon>edit</mat-icon>
           Update
         </button>
@@ -42,7 +63,7 @@
         <ng-template #delete>
           <div class="modal-body text-center">
             <h4>Do you want to delete?</h4>
-            <button mat-raised-button color="warn" (click)="deleteEmployee(element.id)" class="m-2">
+            <button mat-raised-button color="warn" (click)="deleteEmployee(employee.id)" class="m-2">
               <mat-icon>delete</mat-icon>
               Delete
             </button>
@@ -52,15 +73,18 @@
             </button>
           </div>
         </ng-template>
-        <!--<button mat-raised-button color="warn" (click)="deleteEmployee(element.id)" class="m-2">
+        <!--<button mat-raised-button color="warn" (click)="deleteEmployee(employee.id)" class="m-2">
           <mat-icon>delete</mat-icon>
           Delete
         </button>-->
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;">
   </table>
+
+  <mat-paginator [length]="100" [pageSize]="3"
+                 [pageSizeOptions]="[3, 5, 10]"></mat-paginator>
 
   <div class="row mt-4">
     <div class="col">

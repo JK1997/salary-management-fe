@@ -20,6 +20,9 @@ import {MatPaginatorModule} from "@angular/material/paginator";
 import {MatIconModule} from "@angular/material/icon";
 import {MatButtonModule} from "@angular/material/button";
 import {ModalModule} from 'ngx-bootstrap/modal';
+import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
+import {MatSortModule} from "@angular/material/sort";
+import {MatInputModule} from "@angular/material/input";
 
 @NgModule({
   declarations: [
@@ -43,7 +46,10 @@ import {ModalModule} from 'ngx-bootstrap/modal';
     MatPaginatorModule,
     MatIconModule,
     MatButtonModule,
-    ModalModule.forRoot()
+    ModalModule.forRoot(),
+    MatProgressSpinnerModule,
+    MatSortModule,
+    MatInputModule
   ],
   providers: [
      {provide: HTTP_INTERCEPTORS, useClass: HttpIntercepterBasicAuthService, multi: true }
