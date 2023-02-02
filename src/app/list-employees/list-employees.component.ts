@@ -99,6 +99,7 @@ export class ListEmployeesComponent implements AfterViewInit, OnInit {
       response => {
         console.log(response);
         this.message = `Delete of Employee ${id} Successful!`;
+        this.loadEmployeesPage()
         // this.refreshEmployees();
         // @ts-ignore
         this.modalRef.hide();
@@ -116,7 +117,7 @@ export class ListEmployeesComponent implements AfterViewInit, OnInit {
   }
 
   openModal(template: TemplateRef<any>) {
-    this.modalRef = this.modalService.show(template, {class: 'modal-sm'});
+    this.modalRef = this.modalService.show(template, {class: 'modal-sm modal-dialog-centered'});
   }
 
   decline(): void {
