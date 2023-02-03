@@ -183,7 +183,7 @@ If you have a better suggestion or further comments on this project, please do n
 via the channels below.
 Don't forget to give the project a star! Thanks again!
 
-Your Name - [@my_LinkedIn](https://www.linkedin.com/in/jun-kai-ong-1b222518b) - ongjunkai@ecquaria.com
+Jun Kai - [@my_LinkedIn](https://www.linkedin.com/in/jun-kai-ong-1b222518b) - ongjunkai@ecquaria.com
 
 Project Link: [https://github.com/Ong-Jun-Kai/salary-management-fe](https://github.com/Ong-Jun-Kai/salary-management-fe)
 
