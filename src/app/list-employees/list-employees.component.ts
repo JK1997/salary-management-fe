@@ -28,6 +28,7 @@ export class ListEmployeesComponent implements AfterViewInit, OnInit {
   employees: Employee[] | undefined
 
   message: string | undefined
+  fileName = '';
 
   employee: Employee | undefined;
   dataSource!: EmployeesDataSource;
@@ -123,6 +124,28 @@ export class ListEmployeesComponent implements AfterViewInit, OnInit {
   decline(): void {
     // @ts-ignore
     this.modalRef.hide();
+  }
+
+  onFileSelected(event : any) {
+
+    const file:File = event.target.files[0];
+
+    if (file) {
+
+      this.fileName = file.name;
+
+      const formData = new FormData();
+
+      formData.append("file", file);
+
+      this.employeeService.uploadCSV(formData)
+        .subscribe (
+          data => {
+            console.log(data)
+            this.loadEmployeesPage()
+          }
+        )
+    }
   }
 
 }

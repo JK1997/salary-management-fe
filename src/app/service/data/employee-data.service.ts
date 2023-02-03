@@ -48,4 +48,10 @@ export class EmployeeDataService {
                 , employee);
   }
 
+  uploadCSV(formData: FormData){
+    return this.http.post(
+      `${EMPLOYEE_JPA_API_URL}/users/upload/`
+      , formData);
+  }
+
 }

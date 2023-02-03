@@ -23,6 +23,7 @@ import {ModalModule} from 'ngx-bootstrap/modal';
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import {MatSortModule} from "@angular/material/sort";
 import {MatInputModule} from "@angular/material/input";
+import {MatTooltipModule} from "@angular/material/tooltip";
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import {MatInputModule} from "@angular/material/input";
     ModalModule.forRoot(),
     MatProgressSpinnerModule,
     MatSortModule,
-    MatInputModule
+    MatInputModule,
+    MatTooltipModule
   ],
   providers: [
      {provide: HTTP_INTERCEPTORS, useClass: HttpIntercepterBasicAuthService, multi: true }
