@@ -1,5 +1,23 @@
-<H1>Welcome!</H1>
-
-<div class="container">
-  Welcome {{name}}. You can manage your salary <a routerLink="/employees">here</a>
-</div>
+<carousel  [isAnimated]="true">
+  <slide>
+    <img src="assets/images/wallpaper.jpg" alt="Welcome slide" style="display: block; width: 100%;">
+    <div class="carousel-caption d-none d-md-block">
+      <h2>Welcome {{name}}.</h2>
+      <p>You can manage your salary <a routerLink="/employees">here</a></p>
+    </div>
+  </slide>
+  <slide>
+    <img src="assets/images/employee.jpg" alt="Employee slide" style="display: block; width: 100%;">
+    <div class="carousel-caption d-none d-md-block">
+      <h3>For All Employees</h3>
+      <p>“A dream doesn't become reality through magic; it takes sweat, determination and hard work.” </p>
+    </div>
+  </slide>
+  <slide>
+    <img src="assets/images/salary.jpg" alt="Salary slide" style="display: block; width: 100%;">
+    <div class="carousel-caption d-none d-md-block">
+      <h3>With This Salary Management App</h3>
+      <p>“Don't let money run your life, let money help you run your life better.”</p>
+    </div>
+  </slide>
+</carousel>
