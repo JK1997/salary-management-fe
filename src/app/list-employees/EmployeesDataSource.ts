@@ -22,12 +22,12 @@ export class EmployeesDataSource implements DataSource<Employee> {
   }
 
   loadEmployees(minSalary= 0, maxSalary = 99999999,
-              sort = 'asc', pageIndex = 0, pageSize = 30) {
+              sort = 'asc', pageIndex = 0, pageSize = 30, sortActive="id") {
 
     this.loadingSubject.next(true);
 
     this.employeeDataService.retrieveAllEmployees(minSalary, maxSalary, sort,
-      pageIndex, pageSize).pipe(
+      pageIndex, pageSize, sortActive).pipe(
       catchError(() => of([])),
       finalize(() => this.loadingSubject.next(false))
     )

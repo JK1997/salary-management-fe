@@ -16,7 +16,7 @@ export class EmployeeDataService {
   ) { }
 
   retrieveAllEmployees(minSalary=0, maxSalary = 99999999, sort = 'asc',
-                       pageNumber = 0, pageSize = 30):  Observable<any> {
+                       pageNumber = 0, pageSize = 30, sortActive='id'):  Observable<any> {
     return this.http.get(`${EMPLOYEE_JPA_API_URL}/users/employees`, {
       params: new HttpParams()
         .set('minSalary', minSalary)
@@ -24,6 +24,7 @@ export class EmployeeDataService {
         .set('sort', sort)
         .set('pageNumber', pageNumber.toString())
         .set('pageSize', pageSize.toString())
+        .set('sortActive', sortActive)
     });
   }
 

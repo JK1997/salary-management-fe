@@ -49,7 +49,7 @@ export class ListEmployeesComponent implements AfterViewInit, OnInit {
     this.employee = this.route.snapshot.data["employee"];
     this.dataSource = new EmployeesDataSource(this.employeeService);
     // @ts-ignore
-    this.dataSource.loadEmployees(0, 99999999, 'asc', 0, 30);
+    this.dataSource.loadEmployees(0, 99999999, 'asc', 0, 30, 'id');
   }
 
   ngAfterViewInit() {
@@ -79,7 +79,7 @@ export class ListEmployeesComponent implements AfterViewInit, OnInit {
 
   loadEmployeesPage() {
     // @ts-ignore
-    this.dataSource.loadEmployees(this.minSalary.nativeElement.value, this.maxSalary.nativeElement.value, this.sort.direction, this.paginator.pageIndex, this.paginator.pageSize);
+    this.dataSource.loadEmployees(this.minSalary.nativeElement.value, this.maxSalary.nativeElement.value, this.sort.direction, this.paginator.pageIndex, this.paginator.pageSize, this.sort.active);
     console.log(this.dataSource.loadEmployees);
 
   }

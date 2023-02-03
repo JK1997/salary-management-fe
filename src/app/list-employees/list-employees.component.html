@@ -30,22 +30,22 @@
           The actual rendered columns are set as a property on the row definition" -->
 
     <ng-container matColumnDef="id">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> ID</th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header="id"> ID</th>
       <td mat-cell *matCellDef="let employee"> {{employee.id}} </td>
     </ng-container>
 
     <ng-container matColumnDef="name">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> Name</th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header="name"> Name</th>
       <td mat-cell *matCellDef="let employee"> {{employee.name}} </td>
     </ng-container>
 
     <ng-container matColumnDef="login">
-      <th mat-header-cell *matHeaderCellDef> Login</th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header="login"> Login</th>
       <td mat-cell *matCellDef="let employee"> {{employee.login}} </td>
     </ng-container>
 
     <ng-container matColumnDef="salary">
-      <th mat-header-cell *matHeaderCellDef> Salary</th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header="salary"> Salary</th>
       <td mat-cell *matCellDef="let employee"> {{employee.salary | currency}} </td>
     </ng-container>
 
