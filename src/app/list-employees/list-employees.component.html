@@ -83,7 +83,7 @@
     <tr mat-row *matRowDef="let row; columns: displayedColumns;">
   </table>
 
-  <mat-paginator [length]="100" [pageSize]="30"
+  <mat-paginator [length]="(dataSource.totalNumberOfEmployees$ | async)" [pageSize]="30"
                  [pageSizeOptions]="[5, 10, 30, 50, 100]"></mat-paginator>
 
   <div class="row mt-4">

@@ -7,8 +7,10 @@ export class EmployeesDataSource implements DataSource<Employee> {
 
   private employeesSubject = new BehaviorSubject<Employee[]>([]);
   private loadingSubject = new BehaviorSubject<boolean>(false);
+  private totalNumberOfEmployeesSubject = new BehaviorSubject<number>(30);
 
   public loading$ = this.loadingSubject.asObservable();
+  public totalNumberOfEmployees$ = this.totalNumberOfEmployeesSubject.asObservable();
 
   constructor(private employeeDataService: EmployeeDataService) {}
 
@@ -19,6 +21,7 @@ export class EmployeesDataSource implements DataSource<Employee> {
   disconnect(collectionViewer: CollectionViewer): void {
     this.employeesSubject.complete();
     this.loadingSubject.complete();
+    this.totalNumberOfEmployeesSubject.complete();
   }
 
   loadEmployees(minSalary= 0, maxSalary = 99999999,
@@ -31,6 +34,9 @@ export class EmployeesDataSource implements DataSource<Employee> {
       catchError(() => of([])),
       finalize(() => this.loadingSubject.next(false))
     )
-      .subscribe(employees => this.employeesSubject.next(employees["results"]));
+      .subscribe(response => {
+        this.employeesSubject.next(response["results"]);
+        this.totalNumberOfEmployeesSubject.next(response["totalNumberOfEmployees"])
+      });
   }
 }
