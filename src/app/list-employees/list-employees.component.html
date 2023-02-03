@@ -1,6 +1,11 @@
 <h1> Employees </h1>
 
-<div class="alert alert-success" *ngIf='message'>{{message}}</div>
+<div *ngFor="let alert of alerts">
+  <alert type="success" [dismissible]="dismissible" [dismissOnTimeout]="alert.timeout" (onClosed)="onClosed(alert)"
+         *ngIf='message'>{{message}}</alert>
+  <alert type="danger" [dismissible]="dismissible" [dismissOnTimeout]="alert.timeout" (onClosed)="onClosed(alert)"
+         *ngIf='errorMessage'>{{errorMessage}}</alert>
+</div>
 
 <div class="container mt-4 employee">
 
@@ -34,11 +39,12 @@
     </div>
   </div>
 
-  <!--<div class="spinner-container" *ngIf="dataSource.loading$ | async">
+  <div class="spinner-container" *ngIf="dataSource.loading$ | async">
     <mat-spinner></mat-spinner>
-  </div>-->
+  </div>
 
-  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort matSortActive="id" matSortDirection="asc" matSortDisableClear>
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort matSortActive="id" matSortDirection="asc"
+         matSortDisableClear>
 
     <!--- Note that these columns can be defined in any order.
           The actual rendered columns are set as a property on the row definition" -->

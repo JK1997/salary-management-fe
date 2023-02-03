@@ -24,6 +24,8 @@ import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import {MatSortModule} from "@angular/material/sort";
 import {MatInputModule} from "@angular/material/input";
 import {MatTooltipModule} from "@angular/material/tooltip";
+import {AlertModule} from "ngx-bootstrap/alert";
+import {CarouselModule} from "ngx-bootstrap/carousel";
 
 @NgModule({
   declarations: [
@@ -36,23 +38,25 @@ import {MatTooltipModule} from "@angular/material/tooltip";
     LogoutComponent,
     EmployeeComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    HttpClientModule,
-    BrowserAnimationsModule,
-    MatFormFieldModule,
-    MatTableModule,
-    MatPaginatorModule,
-    MatIconModule,
-    MatButtonModule,
-    ModalModule.forRoot(),
-    MatProgressSpinnerModule,
-    MatSortModule,
-    MatInputModule,
-    MatTooltipModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        FormsModule,
+        HttpClientModule,
+        BrowserAnimationsModule,
+        MatFormFieldModule,
+        MatTableModule,
+        MatPaginatorModule,
+        MatIconModule,
+        MatButtonModule,
+        ModalModule.forRoot(),
+        MatProgressSpinnerModule,
+        MatSortModule,
+        MatInputModule,
+        MatTooltipModule,
+        AlertModule,
+        CarouselModule
+    ],
   providers: [
      {provide: HTTP_INTERCEPTORS, useClass: HttpIntercepterBasicAuthService, multi: true }
   ],

@@ -6,6 +6,7 @@ import {EmployeesDataSource} from "./EmployeesDataSource";
 import {MatPaginator} from "@angular/material/paginator";
 import {debounceTime, distinctUntilChanged, fromEvent, merge, tap} from 'rxjs';
 import {MatSort} from "@angular/material/sort";
+import {AlertModule} from "ngx-bootstrap/alert";
 
 export class Employee {
 
@@ -28,7 +29,9 @@ export class ListEmployeesComponent implements AfterViewInit, OnInit {
   employees: Employee[] | undefined
 
   message: string | undefined
+  errorMessage!: string
   fileName = '';
+  dismissible = true;
 
   employee: Employee | undefined;
   dataSource!: EmployeesDataSource;
@@ -141,11 +144,31 @@ export class ListEmployeesComponent implements AfterViewInit, OnInit {
       this.employeeService.uploadCSV(formData)
         .subscribe (
           data => {
-            console.log(data)
+              // @ts-ignore
+              this.message = data["message"]
             this.loadEmployeesPage()
-          }
-        )
+          },
+          error => {
+            console.log(error);
+            this.errorMessage = error.error["message"]
+          });
     }
+  }
+
+  alerts: any[] = [{
+    type: 'success',
+    timeout: 5000
+  }];
+
+  add(): void {
+    this.alerts.push({
+      type: 'info',
+      timeout: 5000
+    });
+  }
+
+  onClosed(dismissedAlert: AlertModule): void {
+    this.alerts = this.alerts.filter(alert => alert !== dismissedAlert);
   }
 
 }
