@@ -31,7 +31,7 @@
 
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](http://localhost:4200/)
+[![Salary Management App - FE][product-screenshot]](http://localhost:4200/)
 
 ## Salary Management App - FE
 
@@ -46,10 +46,8 @@ how to develop this project._
 
 ### Built With
 
-This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for
-the acknowledgements section. Here are a few examples.
+The following is the major frameworks / libraries used to bootstrap this project.
 
-* [![Spring Boot][Spring-boot-img]][spring-boot-url]
 * [![Angular][Angular.io]][Angular-url]
 * [![Bootstrap][Bootstrap.com]][Bootstrap-url]
 
@@ -65,32 +63,46 @@ Please follow the instructions below on setting up this project locally.
 
 ### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
+Please install the Angular CLI in advance:
 
 * npm
   ```sh
   npm install -g @angular/cli
   ```
-* Install Angular MUI
-  ```sh
-  ng add @angular/material
-  ```
+
+* Please ensure that you run both FE and BE applications concurrently. 
+  
+  [https://github.com/Ong-Jun-Kai/salary-management-fe](https://github.com/Ong-Jun-Kai/salary-management-fe)
+
+  [https://github.com/Ong-Jun-Kai/salary-management-be](https://github.com/Ong-Jun-Kai/salary-management-be)
+
 
 ### Installation
 
-Please installing and setting up your app.
+Please installing and setting up your app with the following steps: 
 
 1. Clone the repo
    ```sh
    git clone https://github.com/Ong-Jun-Kai/salary-management-fe
 
    ```
+
 2. Use cmd and cd to the project path. Run `ng serve`. Navigate to `http://localhost:4200/`. The application will
    automatically reload if you
    change any of the source files.
 
 
-3. Login credentials
+3. Install Angular MUI
+    ```sh
+    ng add @angular/material
+    ```
+
+4. Install Angular Bootstrap
+    ```sh
+    npm install ngx-bootstrap --save
+    ```
+
+5. Login credentials
 
   * Username: JunKai
   * Password: dummy
@@ -101,9 +113,9 @@ Please installing and setting up your app.
 
 <!-- USAGE EXAMPLES -->
 
-## Usage
+## Usage / Demonstration
 
-Following is the demonstration on how to use the app:
+This section describes how to use the main features of this app:
 
 ![Upload File][upload-file-img]
 
@@ -139,22 +151,19 @@ _Please use attached [csv file](src/assets/employee.csv) for your convenience._
 
 ![Add record][add-img]
 
-* You may add a record by clicking the ADD button which will route to a record inserting page
+* You may insert a record by clicking the ADD button which will route to a record filling page
 
 ==========================================================================================
 
 ![Save record][save-records-img]
 
-* Updating a record - there will be existing record bind to the input field
+* Updating a record - there will be existing record bind to the input fields
 * Adding a record - there will be empty record in the form
 
 _Please be reminded that you need to pass the input validation in order to save the records._
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- ROADMAP -->
-
 
 <!-- IMPROVEMENTS -->
 
@@ -164,12 +173,12 @@ There are several User Stories that I did not accomplish such as User Story 4 & 
 
 I would like to enhance this project in the future such as following:
 
-1. Implement more unit testing using jUnit
+1. Implement Angular unit testing
 2. Improve the UI be more mobile responsive and user-friendly
 3. Salary range validation
 4. Add a back button in employee page
 5. Organise the files in better structure
-6. Better error handling for REST
+6. Show better error response message from REST
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -198,7 +207,7 @@ Project Link: [https://github.com/Ong-Jun-Kai/salary-management-fe](https://gith
 List of resources that I find helpful and would like to give credit to. 
 * [Angular Bootstrap](https://valor-software.com/ngx-bootstrap/old/6.2.0/#/documentation#getting-started)
 * [Angular Material](https://material.angular.io/guide/getting-started)
-* [Question regarding Spring Boot](https://www.baeldung.com/)
+
 * [Angular University](https://blog.angular-university.io/angular-file-upload/)
 * [Udemy tutorial](https://ecquaria.udemy.com/course/full-stack-application-development-with-spring-boot-and-angular/learn/lecture/12537586#overview)
 
