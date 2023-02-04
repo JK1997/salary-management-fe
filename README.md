@@ -113,7 +113,7 @@ Please installing and setting up your app with the following steps:
 
 <!-- USAGE EXAMPLES -->
 
-## Usage / Demonstration
+## Usage
 
 This section describes how to use the main features of this app:
 
@@ -123,37 +123,37 @@ This section describes how to use the main features of this app:
 
 _Please use attached [csv file](src/assets/employee.csv) for your convenience._
 
-==========================================================================================
+================================================================================
 
 ![Filter Salary][filter-salary-img]
 
 * You can filter the table by inserting salary range which accept in number format only
 
-==========================================================================================
+================================================================================
 
 ![Sorting][sorting-img]
 
 * You can click the table header's arrow to sort the records in ascending or descending order
 
-==========================================================================================
+================================================================================
 
 ![Update and Delete][update-delete-img]
 
 * You are able to update and delete the records. A confirmation message will prompt out if you click the delete button.
 
-==========================================================================================
+================================================================================
 
 ![Pagination][pagination-img]
 
 * You can sort the items per page to be displayed using the pagination below the table
 
-==========================================================================================
+===============================================================================
 
 ![Add record][add-img]
 
 * You may insert a record by clicking the ADD button which will route to a record filling page
 
-==========================================================================================
+===============================================================================
 
 ![Save record][save-records-img]
 
